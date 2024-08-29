@@ -1,7 +1,8 @@
+import HomePage from "./auth/HomePage";
+
 export default function Home() {
+
   return (
-    <div className="">
-      
-    </div>
+    <HomePage />
   );
 }
