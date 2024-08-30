@@ -7,7 +7,11 @@ import type { sessionForm } from '../../types/types';
 
 export default function LoginForm({ changeWindow } : sessionForm) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
+  console.log(email)
+  const insertEmail = ({target} : React.ChangeEvent<HTMLInputElement>) => setEmail(target.value);
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
@@ -18,13 +22,14 @@ export default function LoginForm({ changeWindow } : sessionForm) {
             <p className='text-[17px]'>Sign in to start chatting in real-time.</p>
           </div>
           <div className='flex flex-col gap-2 w-96'>
-            <Input variant='bordered' type="email" label={
+            <Input color='primary' onChange={(e) => insertEmail(e)} variant='bordered' type="email" label={
               <div className='flex items-center'>
                 <Image src='/email.svg' alt='email' width={30} height={20}/>
                 <p>Email</p>
               </div>
             }/>
             <Input
+              color='primary'
               variant='bordered'
               label={
                 <div className='flex items-center'>
@@ -44,7 +49,7 @@ export default function LoginForm({ changeWindow } : sessionForm) {
               type={isVisible ? "text" : "password"}
             />
           </div>
-          <Button className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
+          <Button type='submit' className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
             Sign In
           </Button>
           <p className='text-[17px]'>Dont&apos;t have an account? <span className='hover:text-blue-500 cursor-pointer' onClick={changeWindow}>Sing Up</span></p>

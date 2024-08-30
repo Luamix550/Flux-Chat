@@ -19,7 +19,8 @@ const config: Config = {
         "wallpaper3": 'url("/fix.jpg")'
       },
       fontFamily: {
-        Grotesk: ["Space Grotesk", 'sans-serif']
+        Grotesk: ["Space Grotesk", 'sans-serif'],
+        Amsterdam: [ "Bebas Neue", 'sans-serif']
       }
     },
   },

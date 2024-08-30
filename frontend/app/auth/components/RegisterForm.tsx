@@ -20,6 +20,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
         </div>    
         <div className='flex flex-col gap-2 w-96'>
             <Input
+            color='primary'
             variant='bordered'
             type="text"
             label={
@@ -30,6 +31,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             }
             />
             <Input
+            color='primary'
             variant='bordered'
             type="email"
             label={
@@ -40,6 +42,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             }
             />
             <Input
+            color='primary'
             variant='bordered'
             label={
                 <div className='flex items-center'>
@@ -59,6 +62,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             type={isVisible ? "text" : "password"}
             />
             <Input
+            color='primary'
             variant='bordered'
             label={
                 <div className='flex items-center'>
@@ -78,7 +82,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             type={isVisible ? "text" : "password"}
             />
         </div>
-        <Button className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
+        <Button type='submit' className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
             Sign Up
         </Button>
         <p className='text-[17px]'>Already have an account? <span className='hover:text-blue-500 cursor-pointer' onClick={changeWindow}>Sign In</span></p>
