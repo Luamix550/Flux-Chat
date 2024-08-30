@@ -15,8 +15,8 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "wallpaper1": 'url("/wallpaper1.jpg")',
-        "wallpaper2": 'url("/wallpaper2.jpg")'
+        "wallpaper2": 'url("/wallpaper2.jpg")',
+        "wallpaper3": 'url("/fix.jpg")'
       },
       fontFamily: {
         Grotesk: ["Space Grotesk", 'sans-serif']
