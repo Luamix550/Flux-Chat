@@ -1,16 +1,23 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input, Image, Button } from "@nextui-org/react";
 import { EyeFilledIcon } from './EyeFilledIcon';
 import { EyeSlashFilledIcon } from './EyeSlashFilledIcon';
 import type { sessionForm } from '../../types/types';
-import { toast } from 'sonner'
+import useRegisterValidation from '../hooks/RegisterFormValidation';
+import { toast } from 'sonner';
 
 export default function RegisterForm({ changeWindow } : sessionForm) {
   const [isVisible, setIsVisible] = useState(false);
+  const { values, errors, handleChange, validate, isInvalid } = useRegisterValidation({ name: '', email: '', password: '', repeatPassword: '' });
 
   const toggleVisibility = () => setIsVisible(!isVisible);
- 
+  const handleSubmit = () => validate();
+
+  useEffect(() => {
+    Object.values(errors).forEach(error => toast.error(error));
+  }, [errors]);
+
   return (
     <div className='flex flex-col items-center justify-center md:bg-white md:h-[600px] md:w-[500px] max-sm:mt-8 max-md:mt-8 rounded-md bg-cover bg-top font-Grotesk'>
       <div className='flex flex-col justify-center items-center animate-bouncing'>
@@ -20,7 +27,6 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
         </div>    
         <div className='flex flex-col gap-2 w-96'>
             <Input
-            className='max-sm:text-sm max-sm:w-full'
             color='primary'
             variant='faded'
             type="text"
@@ -32,7 +38,6 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             }
             />
             <Input
-            className='max-sm:text-sm max-sm:w-full'
             color='primary'
             variant='faded'
             type="email"
@@ -44,7 +49,6 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             }
             />
             <Input
-            className='max-sm:text-sm max-sm:w-full'
             color='primary'
             variant='faded'
             label={
@@ -65,7 +69,6 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             type={isVisible ? "text" : "password"}
             />
             <Input
-            className='max-sm:text-sm max-sm:w-full'
             color='primary'
             variant='faded'
             label={
@@ -86,7 +89,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             type={isVisible ? "text" : "password"}
             />
         </div>
-        <Button type='submit' className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
+        <Button onClick={handleSubmit} type='submit' className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
             Sign Up
         </Button>
         <p className='text-[17px] max-sm:text-white'>Already have an account? <span className='hover:text-blue-500 cursor-pointer' onClick={changeWindow}>Sign In</span></p>

@@ -1,18 +1,23 @@
 "use client"
-import React, { useState } from 'react'
-import {Input, Image, Button, ButtonGroup} from "@nextui-org/react";
+import React, { useEffect, useState } from 'react'
+import { Input, Image, Button } from "@nextui-org/react";
 import { EyeFilledIcon } from './EyeFilledIcon';
 import { EyeSlashFilledIcon } from './EyeSlashFilledIcon';
 import type { sessionForm } from '../../types/types';
+import useLoginValidation from '../hooks/LoginFormValidation';
+import { toast } from 'sonner';
 
 export default function LoginForm({ changeWindow } : sessionForm) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-
-  console.log(email)
-  const insertEmail = ({target} : React.ChangeEvent<HTMLInputElement>) => setEmail(target.value);
+  const { values, errors, handleChange, validate, isInvalid } = useLoginValidation({ email: '', password: '' });
+  
   const toggleVisibility = () => setIsVisible(!isVisible);
+
+  const handleSubmit = () => validate()
+
+  useEffect(() => {
+    Object.values(errors).forEach(error => toast.error(error));
+  }, [errors])
 
   return (
     <div className='flex flex-col items-center justify-center shadow-lg md:bg-white max-sm:h-[400px] h-[600px] w-[500px] max-lg:h-[600px] max-lg:w-[600px] max-md:w-[500px] max-sm:mt-8 max-md:mt-8 rounded-md bg-cover bg-top font-Grotesk'>
@@ -22,17 +27,25 @@ export default function LoginForm({ changeWindow } : sessionForm) {
             <p className='text-[17px] max-sm:text-white max-md:text-white'>Sign in to start chatting in real-time.</p>
           </div>
           <div className='flex flex-col gap-2 w-96'>
-            <Input color='primary'
-            onChange={(e) => insertEmail(e)}
-            variant='faded'
-            type="email"
-            label={
+            <Input
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              isInvalid={isInvalid.email}
+              color='primary' 
+              variant='bordered'
+              type="email"
+              label={
               <div className='flex items-center'>
                 <Image src='/email.svg' alt='email' width={30} height={20}/>
                 <p>Email</p>
               </div>
             }/>
             <Input
+              name='password'
+              value={values.password}
+              onChange={handleChange}
+              isInvalid={isInvalid.password}
               color='primary'
               variant='faded'
               label={
@@ -53,7 +66,7 @@ export default function LoginForm({ changeWindow } : sessionForm) {
               type={isVisible ? "text" : "password"}
             />
           </div>
-          <Button type='submit' className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
+          <Button onClick={handleSubmit} type='submit' className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
             Sign In
           </Button>
           <p className='text-[17px] max-sm:text-white max-md:text-white '>Dont&apos;t have an account? <span className='hover:text-blue-500 cursor-pointer' onClick={changeWindow}>Sing Up</span></p>
