@@ -10,7 +10,7 @@ import { toast } from 'sonner';
 export default function LoginForm({ changeWindow } : sessionForm) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const { values, errors, handleChange, validate, isInvalid } = useLoginValidation({ email: '', password: '' });
-  console.log(values)
+  
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const handleSubmit = () => validate()
