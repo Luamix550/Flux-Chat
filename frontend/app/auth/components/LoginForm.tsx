@@ -10,6 +10,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 export default function LoginForm({ changeWindow } : sessionForm) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState(false);
   const isMediumOrLargerDevice = useMediaQuery('(min-width: 768px)');
   const { values, errors, handleChange, validate, isInvalid } = useLoginValidation({ email: '', password: '' });
   
@@ -22,6 +23,10 @@ export default function LoginForm({ changeWindow } : sessionForm) {
       duration: 2000
     }));
   }, [errors])
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <div className='flex flex-col items-center justify-center shadow-lg md:bg-white max-sm:w-[0px] max-sm:h-[400px] h-[600px] w-[500px] max-lg:h-[600px] max-lg:w-[600px] max-md:w-[500px] max-sm:mt-8 max-md:mt-8 rounded-md bg-cover bg-top font-Grotesk'>
@@ -37,7 +42,7 @@ export default function LoginForm({ changeWindow } : sessionForm) {
               onChange={handleChange}
               isInvalid={isInvalid.email}
               color='primary'
-              variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
+              variant={ isClient && isMediumOrLargerDevice ? 'bordered' : 'faded' }
               type="email"
               label={
               <div className='flex items-center'>
@@ -51,7 +56,7 @@ export default function LoginForm({ changeWindow } : sessionForm) {
               onChange={handleChange}
               isInvalid={isInvalid.password}
               color='primary'
-              variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
+              variant={ isClient && isMediumOrLargerDevice ? 'bordered' : 'faded' }
               label={
                 <div className='flex items-center'>
                 <Image src='/password.svg' alt='password' width={30} height={25} />
