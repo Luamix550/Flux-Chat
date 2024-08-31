@@ -6,9 +6,11 @@ import { EyeSlashFilledIcon } from './EyeSlashFilledIcon';
 import type { sessionForm } from '../../types/types';
 import useLoginValidation from '../hooks/LoginFormValidation';
 import { toast } from 'sonner';
+import { useMediaQuery } from 'usehooks-ts';
 
 export default function LoginForm({ changeWindow } : sessionForm) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const isMediumOrLargerDevice = useMediaQuery('(min-width: 768px)');
   const { values, errors, handleChange, validate, isInvalid } = useLoginValidation({ email: '', password: '' });
   
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -16,7 +18,9 @@ export default function LoginForm({ changeWindow } : sessionForm) {
   const handleSubmit = () => validate()
 
   useEffect(() => {
-    Object.values(errors).forEach(error => toast.error(error));
+    Object.values(errors).forEach(error => toast.error(error, {
+      duration: 2000
+    }));
   }, [errors])
 
   return (
@@ -32,8 +36,8 @@ export default function LoginForm({ changeWindow } : sessionForm) {
               value={values.email}
               onChange={handleChange}
               isInvalid={isInvalid.email}
-              color='primary' 
-              variant='faded'
+              color='primary'
+              variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
               type="email"
               label={
               <div className='flex items-center'>
@@ -47,7 +51,7 @@ export default function LoginForm({ changeWindow } : sessionForm) {
               onChange={handleChange}
               isInvalid={isInvalid.password}
               color='primary'
-              variant='faded'
+              variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
               label={
                 <div className='flex items-center'>
                 <Image src='/password.svg' alt='password' width={30} height={25} />

@@ -6,16 +6,20 @@ import { EyeSlashFilledIcon } from './EyeSlashFilledIcon';
 import type { sessionForm } from '../../types/types';
 import useRegisterValidation from '../hooks/RegisterFormValidation';
 import { toast } from 'sonner';
+import { useMediaQuery } from 'usehooks-ts';
 
 export default function RegisterForm({ changeWindow } : sessionForm) {
   const [isVisible, setIsVisible] = useState(false);
+  const isMediumOrLargerDevice = useMediaQuery('(min-width: 768px)');
   const { values, errors, handleChange, validate, isInvalid } = useRegisterValidation({ name: '', email: '', password: '', repeatPassword: '' });
 
   const toggleVisibility = () => setIsVisible(!isVisible);
   const handleSubmit = () => validate();
 
   useEffect(() => {
-    Object.values(errors).forEach(error => toast.error(error));
+    Object.values(errors).forEach(error => toast.error(error, {
+        duration: 2000
+    }));
   }, [errors]);
 
   return (
@@ -27,10 +31,13 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
         </div>    
         <div className='flex flex-col gap-2 w-96'>
             <Input
+            name='name'
+            value={values.name}
             color='primary'
-            variant='faded'
+            variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
             type="text"
             isInvalid={isInvalid.name}
+            onChange={handleChange}
             label={
                 <div className='flex items-center'>
                 <Image src='/user.svg' alt='name' width={30} height={20} />
@@ -39,10 +46,13 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             }
             />
             <Input
+            name='email'
+            value={values.email}
             color='primary'
-            variant='faded'
+            variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
             type="email"
             isInvalid={isInvalid.email}
+            onChange={handleChange}
             label={
                 <div className='flex items-center'>
                 <Image src='/email.svg' alt='email' width={30} height={20} />
@@ -51,9 +61,12 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             }
             />
             <Input
+            name='password'
+            value={values.password}
             color='primary'
-            variant='faded'
+            variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
             isInvalid={isInvalid.password}
+            onChange={handleChange}
             label={
                 <div className='flex items-center'>
                 <Image src='/password.svg' alt='password' width={30} height={25} />
@@ -72,9 +85,12 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             type={isVisible ? "text" : "password"}
             />
             <Input
+            name='repeatPassword'
+            value={values.repeatPassword}
             color='primary'
-            variant='faded'
+            variant={ isMediumOrLargerDevice ? 'bordered' : 'faded' }
             isInvalid={isInvalid.repeatPassword}
+            onChange={handleChange}
             label={
                 <div className='flex items-center'>
                 <Image src='/password.svg' alt='password' width={30} height={25} />
