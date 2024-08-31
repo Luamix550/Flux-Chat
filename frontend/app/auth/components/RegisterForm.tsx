@@ -30,6 +30,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             color='primary'
             variant='faded'
             type="text"
+            isInvalid={isInvalid.name}
             label={
                 <div className='flex items-center'>
                 <Image src='/user.svg' alt='name' width={30} height={20} />
@@ -41,6 +42,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             color='primary'
             variant='faded'
             type="email"
+            isInvalid={isInvalid.email}
             label={
                 <div className='flex items-center'>
                 <Image src='/email.svg' alt='email' width={30} height={20} />
@@ -51,6 +53,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             <Input
             color='primary'
             variant='faded'
+            isInvalid={isInvalid.password}
             label={
                 <div className='flex items-center'>
                 <Image src='/password.svg' alt='password' width={30} height={25} />
@@ -71,6 +74,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
             <Input
             color='primary'
             variant='faded'
+            isInvalid={isInvalid.repeatPassword}
             label={
                 <div className='flex items-center'>
                 <Image src='/password.svg' alt='password' width={30} height={25} />

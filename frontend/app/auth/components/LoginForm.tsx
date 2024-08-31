@@ -20,7 +20,7 @@ export default function LoginForm({ changeWindow } : sessionForm) {
   }, [errors])
 
   return (
-    <div className='flex flex-col items-center justify-center shadow-lg md:bg-white max-sm:h-[400px] h-[600px] w-[500px] max-lg:h-[600px] max-lg:w-[600px] max-md:w-[500px] max-sm:mt-8 max-md:mt-8 rounded-md bg-cover bg-top font-Grotesk'>
+    <div className='flex flex-col items-center justify-center shadow-lg md:bg-white max-sm:w-[0px] max-sm:h-[400px] h-[600px] w-[500px] max-lg:h-[600px] max-lg:w-[600px] max-md:w-[500px] max-sm:mt-8 max-md:mt-8 rounded-md bg-cover bg-top font-Grotesk'>
       <div className='flex flex-col items-center animate-bouncing'>
         <div className='flex flex-col justify-center items-center gap-1 m-5'>
             <h1 className='text-5xl max-sm:text-white max-md:text-white'>Hello!</h1>
@@ -33,7 +33,7 @@ export default function LoginForm({ changeWindow } : sessionForm) {
               onChange={handleChange}
               isInvalid={isInvalid.email}
               color='primary' 
-              variant='bordered'
+              variant='faded'
               type="email"
               label={
               <div className='flex items-center'>
