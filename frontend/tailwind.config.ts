@@ -11,10 +11,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        customBlue: '#17b6e5',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "wallpaper": 'url("/wallpaper.png")',
         "wallpaper2": 'url("/wallpaper2.jpg")',
         "wallpaper3": 'url("/fix.jpg")'
       },

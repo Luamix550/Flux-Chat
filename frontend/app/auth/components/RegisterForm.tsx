@@ -26,7 +26,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
     <div className='flex flex-col items-center justify-center md:bg-white md:h-[600px] md:w-[500px] max-sm:mt-8 max-md:mt-8 rounded-md bg-cover bg-top font-Grotesk'>
       <div className='flex flex-col justify-center items-center animate-bouncing'>
         <div className='flex flex-col items-center gap-1 m-5'>
-            <h1 className='text-4xl max-sm:text-white'>Welcome!</h1>
+            <h1 className='text-4xl text-customBlue'>Welcome!</h1>
             <p className='text-[17px] max-sm:text-white '>Create an account to join FluxChat.</p>
         </div>    
         <div className='flex flex-col gap-2 w-96'>
@@ -112,7 +112,7 @@ export default function RegisterForm({ changeWindow } : sessionForm) {
         <Button onClick={handleSubmit} type='submit' className='m-10 bg-slate-300 shadow-lg hover:scale-110 text-[17px] hover:bg-slate-500'>
             Sign Up
         </Button>
-        <p className='text-[17px] max-sm:text-white'>Already have an account? <span className='hover:text-blue-500 cursor-pointer' onClick={changeWindow}>Sign In</span></p>
+        <p className='text-[17px] max-sm:text-white'>Already have an account? <span className='hover:text-customBlue cursor-pointer' onClick={changeWindow}>Sign In</span></p>
       </div>
     </div>
   );
