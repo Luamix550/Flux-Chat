@@ -1,4 +1,3 @@
-// components/Sidebar.js
 import React, { useState } from 'react';
 import { IconButton } from '@mui/material';
 import { Menu as MenuIcon, People as PeopleIcon, Group as GroupIcon, Chat as ChatIcon } from '@mui/icons-material';
