@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Content from './components/Content';
 
-const Page = () => {
+export default function Feed() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -40,5 +40,3 @@ const Page = () => {
     </div>
   );
 };
-
-export default Page;

@@ -4,8 +4,11 @@ import { Menu as MenuIcon, People as PeopleIcon, Group as GroupIcon, Chat as Cha
 import { Avatar, AvatarGroup } from '@nextui-org/avatar';
 import { Tooltip } from "@nextui-org/tooltip";
 import { User } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
+  const router = useRouter();
+
   return (
     <div
       className={`bg-customGray text-white fixed left-0 top-0 h-full flex flex-col transition-all duration-300 ease-in-out ${isSidebarOpen ? 'w-64' : 'w-20'}`}
@@ -59,9 +62,11 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         </div>
       </div>
 
-      <div className="flex-shrink-0 p-6 pr-10 mt-auto flex justify-center">
+      <div className="flex-shrink-0 p-6 pr-10 mt-auto flex justify-center" >
         {isSidebarOpen && (
-          <User
+          <User className='hover:cursor-pointer' onClick={() => {
+            router.push('/profile/2');
+          }}
             name="Luis Diaz"
             avatarProps={{
               src: "https://i.pravatar.cc/300",
