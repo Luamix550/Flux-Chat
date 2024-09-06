@@ -1,23 +1,18 @@
 export const users = [
     {
         "id": 1,
-        "username": "johndoe",
+        "username": "Brayan Steven Salazar Perdomo",
+        "age": 21,
         "email": "johndoe@example.com",
-        "password_hash": "$2b$10$eImiTXuWVxfM37uY4JANjQx3h0JAzS3oGzNT3xjXY1pF27MewAXrO",
-        "created_at": "2024-09-03T12:34:56Z"
+        "src": "/Brayan.png",
+        "description": "Enthusiastic tech aficionado with a knack for problem-solving. Brayan enjoys discussing the latest advancements in technology and is always ready to dive into interesting conversations. Connect with him for insights and tech tips!"
     },
     {
         "id": 2,
-        "username": "janedoe",
+        "username": "Luis",
+        "age": 18,
         "email": "janedoe@example.com",
-        "password_hash": "$2b$10$zJzCxa5eF4Rt77MBaPxhmOApI6UCNxE8KQEq.jlVZhgCqZfGSKzVa",
-        "created_at": "2024-09-03T13:45:67Z"
-    },
-    {
-        "id": 3,
-        "username": "adminuser",
-        "email": "admin@example.com",
-        "password_hash": "$2b$10$XKrtZ9L3eX47uLJ7O9PjlupVsRscxQ2yRlBmiyA0l7uD1QhhwtaWq",
-        "created_at": "2024-09-03T14:56:78Z"
+        "src": "/Luis.jpeg",
+        "description": "Creative and friendly, Luis is passionate about design and digital art. Whether you're looking for inspiration or just want to chat about the latest trends, Luis brings a fresh perspective and engaging conversation to the table."
     }
 ]
