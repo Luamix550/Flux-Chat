@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "frontend",
   "version": "0.1.0",
@@ -36,3 +37,49 @@
     "typescript": "^5"
   }
 }
+=======
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@midudev/tailwind-animations": "^0.0.7",
+    "@mui/icons-material": "^6.0.2",
+    "@nextui-org/avatar": "^2.0.32",
+    "@nextui-org/button": "^2.0.37",
+    "@nextui-org/divider": "^2.0.31",
+    "@nextui-org/image": "^2.0.31",
+    "@nextui-org/input": "^2.2.4",
+    "@nextui-org/react": "^2.4.6",
+    "@nextui-org/system": "^2.2.5",
+    "@nextui-org/theme": "^2.2.9",
+    "@nextui-org/tooltip": "^2.0.39",
+    "@nextui-org/user": "^2.0.33",
+    "framer-motion": "^11.3.30",
+    "next": "14.2.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "sonner": "^1.5.0",
+    "typewriter-effect": "^2.21.0",
+    "usehooks-ts": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
+>>>>>>> b59a0f346a953eaa80a21c3c118f10178135a592
