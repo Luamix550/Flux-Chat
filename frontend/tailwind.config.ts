@@ -12,6 +12,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        customWhite: '#E8E9ED',
+        customGray: '#1B1C21',
         customBlue: '#17b6e5',
       },
       backgroundImage: {
