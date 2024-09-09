@@ -27,3 +27,7 @@ export interface errorsForm {
     password?: string;
     repeatPassword?: string;
 }
+
+export interface DropdownComponentsProps {
+    changePictures: (pictureType : string, file: File) => void;
+}
