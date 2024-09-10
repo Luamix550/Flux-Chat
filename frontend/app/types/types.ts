@@ -28,6 +28,13 @@ export interface errorsForm {
     repeatPassword?: string;
 }
 
+
+export interface SidebarProps {
+    isSidebarOpen: boolean;
+    toggleSidebar: () => void;
+}
+
+
 export interface DropdownComponentsProps {
     changePictures: (pictureType : string, file: File) => void;
 }
