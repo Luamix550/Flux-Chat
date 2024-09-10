@@ -15,12 +15,15 @@ const config: Config = {
         customWhite: '#E8E9ED',
         customGray: '#1B1C21',
         customBlue: '#17b6e5',
+        customBlue2: "#002f6c",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "wallpaper": 'url("/wallpaper.png")'
+        "wallpaper": 'url("/wallpaper.png")',
+        "wallpaper2": 'url("/default.jpg")',
+        "defaultavatar": 'url("/defaultavatar.jpg")'
       },
       fontFamily: {
         Grotesk: ["Space Grotesk", 'sans-serif'],
