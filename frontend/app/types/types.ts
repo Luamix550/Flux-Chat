@@ -27,3 +27,13 @@ export interface errorsForm {
     password?: string;
     repeatPassword?: string;
 }
+
+export interface SidebarProps {
+    isSidebarOpen: boolean;
+    toggleSidebar: () => void;
+}
+
+
+export interface ContentProps {
+    isSidebarOpen: boolean;
+  }
